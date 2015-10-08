@@ -1,1 +1,20 @@
 SBG aligners with a dynamic programming foundation. Essentially Smith-Waterman variants. Issues considered include modularisation, optimisation, graph specialisation.
+
+Depends on:
+Catch - A header-only unit testing framework.
+
+Build:
+You will need cmake on the command line. 
+
+1. Get the source: git clone --recurse git@gitlab.sbgenomics.com:graphgenome/dpaligner.git
+2. Create a build directory: mkdir <root>/build
+3. Generate project files (makefiles in this case): cd build; cmake -G "Unix Makefiles" ..
+4. Create library and test executable: make
+5. run tests: test/testRun
+
+And you should see at least one passing test...
+
+Warning:
+Because the library sources are globbed from cpp files under <root>/source, cmake cannot currently detect changes in the source files list that make up the library.  So for now, cmake -G <generator> <path-to-root-from-build> should be run after every addition to or subtraction from the source file list.
+
+
