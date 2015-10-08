@@ -1,0 +1,1 @@
+SBG aligners with a dynamic programming foundation. Essentially Smith-Waterman variants. Issues considered include modularisation, optimisation, graph specialisation.

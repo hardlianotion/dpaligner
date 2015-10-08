@@ -1,0 +1,5 @@
+
+file(GLOB_RECURSE lib_sources . *.cpp) 
+
+add_library(dpaligner STATIC ${lib_sources})
+

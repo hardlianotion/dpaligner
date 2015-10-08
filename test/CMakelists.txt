@@ -1,0 +1,8 @@
+include_directories(${PROJECT_SOURCE_DIR}/source)
+
+file(GLOB_RECURSE sourceList . *.cpp)
+add_executable(testRun ${sourceList})
+
+link_directories(CMAKE_BINARY_DIR/source)
+target_link_libraries(testRun dpaligner)
+
