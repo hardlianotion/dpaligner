@@ -108,4 +108,26 @@ TEST_CASE("Match function gives correct cigar string as solution.") {
 
 }
 
+TEST_CASE("Match correctly when reference contains multiple close matches.") {
+    SECTION("Perfect match.") {
+        string result = match("ATTAGACATTGGAC", "TTGGA");
+        CHECK(result == "5=");
+    }
+
+    SECTION("Mismatch.") {
+        string result = match("ACTTGACTGACT","ACTGGCT");
+        CHECK(result == "4=1X2=");
+    }
+
+    SECTION("Insertion.") {
+        string result = match("ATTAGACATTGGAC", "TTTGGA");
+        CHECK(result == "2=1I3=");
+    }
+
+    SECTION("Deletion.") {
+        string result = match("ATTAGACATTGGAC", "TTAGC");
+        CHECK(result == "4=1D1=");
+    }
+}
+
 
