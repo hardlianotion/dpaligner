@@ -42,21 +42,25 @@ TEST_CASE("Score matrix has expected properties.") {
 }
 
 TEST_CASE("Score function properties are correct.") {
-    INFO("Score is >= 0, with identity only if there is no possible match between strings.")
-    CHECK(score("ATGAC", "") == 0);
-    CHECK(score("ATAT", "GCGC") == 0);
-    CHECK(score("ATAGAC", "TA") > 0);
+    SECTION("Score is >= 0, with identity only if there is no possible match between strings.") {
+        CHECK(score("ATGAC", "") == 0);
+        CHECK(score("ATAT", "GCGC") == 0);
+        CHECK(score("ATAGAC", "TA") > 0);
+    }
 
-    INFO("Score of identical words is greater than comparisons between subsets.");
-    CHECK(score("ACTGATTAC", "ACTGATTAC") == 18);
-    CHECK(score("ACTTAC", "TGATTAC") < 18);
+    SECTION("Score of identical words is greater than comparisons between subsets.") {
+        CHECK(score("ACTGATTAC", "ACTGATTAC") == 18);
+        CHECK(score("ACTTAC", "TGATTAC") < 18);
+    }
 
-    INFO("Score function is symmetric in its arguments.");
-    CHECK(score("TACG", "ATTG") == score("ATTG", "TACG"));
+    SECTION("Score function is symmetric in its arguments.") {
+        CHECK(score("TACG", "ATTG") == score("ATTG", "TACG"));
+    }
 
-    INFO("Score is derived from the score matrix.");
-    const ScoreMatrix scores = createScoreMatrix("TAG", "CAGATAG"); 
-    CHECK(score("TAG", "CAGATAG") == score(scores));
+    SECTION("Score is derived from the score matrix.") {
+        const ScoreMatrix scores = createScoreMatrix("TAG", "CAGATAG");
+        CHECK(score("TAG", "CAGATAG") == score(scores));
+    }
 }
 
 TEST_CASE("Cigarize correctly summarizes match route string.") {
@@ -64,7 +68,7 @@ TEST_CASE("Cigarize correctly summarizes match route string.") {
     string cigar = cigarize(route);
     INFO("cigarize reverses the route string.");
     CHECK(cigar == "4=2D4I");
-}    
+}
 
 TEST_CASE("Match picks out the matched substring when passed a ScoreMatrix.") {
     SECTION("Perfect match.") {
