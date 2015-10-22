@@ -9,8 +9,8 @@ You will need cmake on the command line.
 1. Get the source: git clone --recurse git@gitlab.sbgenomics.com:graphgenome/dpaligner.git
 2. Create a build directory: mkdir <root>/build
 3. Generate project files (makefiles in this case): cd build; cmake -G "Unix Makefiles" ..
-4. Create library and test executable: make
-5. run tests: test/testRun
+4. Create library and test executable from the build directory: make
+5. run tests: <root>/build/test/testRun
 
 And you should see at least one passing test...
 
