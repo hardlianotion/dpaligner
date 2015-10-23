@@ -135,3 +135,31 @@ TEST_CASE("Match correctly when reference contains multiple close matches.") {
 }
 
 
+TEST_CASE("Check Smith-Waterman...") {
+    SECTION("Perfect match") {
+        std::string res = match("ACTGACT","ACTGACT");
+        CHECK(res == "7=");
+    }
+
+    SECTION("Mismatch") {
+        std::string res = match("ACTGACT","ACTGGCT");
+        CHECK(res == "4=1X2=");
+    }
+
+    SECTION("Substring match") {
+        std::string res = match("ACTGACT","TGAC");
+        CHECK(res == "4=");
+    }
+
+    SECTION("Deletion") {
+        std::string res = match("ACTGACT","TGCT");
+        CHECK(res == "2=1D2=");
+    }
+
+    SECTION("Insertion") {
+        std::string res = match("ACTGACT","TGAACT");
+        CHECK(res == "3=1I2=");
+    }
+
+}
+
