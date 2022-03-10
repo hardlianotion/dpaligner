@@ -134,6 +134,7 @@ TEST_CASE("Match correctly when reference contains multiple close matches.") {
     }
 }
 
+
 TEST_CASE("Check Smith-Waterman...") {
     SECTION("Perfect match") {
         std::string res = match("ACTGACT","ACTGACT");
@@ -159,5 +160,6 @@ TEST_CASE("Check Smith-Waterman...") {
         std::string res = match("ACTGACT","TGAACT");
         CHECK(res == "3=1I2=");
     }
+
 }
 
