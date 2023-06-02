@@ -46,7 +46,7 @@ struct ScoreMatrix {
     std::pair<size_t, size_t> find(const iterator ptr) const {
         ptrdiff_t difference = std::distance(data_.cbegin(), ptr);
         
-        if(difference < 0 || difference > data.length () {
+        if(difference < 0 || difference > data.size () {
             throw std::logic_error("Argument ptr is not consistent with score matrix data.");
         }
 
