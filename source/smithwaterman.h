@@ -46,7 +46,7 @@ struct ScoreMatrix {
     std::pair<size_t, size_t> find(const iterator ptr) const {
         ptrdiff_t difference = std::distance(data_.cbegin(), ptr);
         
-        if(difference < 0) {
+        if(difference < 0 || difference > data.length () {
             throw std::logic_error("Argument ptr is not consistent with score matrix data.");
         }
 
@@ -90,6 +90,3 @@ std::pair<std::string, std::pair<size_t, size_t>> match(const ScoreMatrix& score
 Returns the best match of string lhs to string rhs.
 */
 std::string match(const std::string& lhs, const std::string& rhs);
-
-
-
