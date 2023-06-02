@@ -1,6 +1,6 @@
 # DPAligner
 
-Aaligners with a dynamic programming foundation. Essentially Smith-Waterman variants. Issues considered include modularisation, optimisation, graph specialisation.
+Aligners with a dynamic programming foundation. Essentially Smith-Waterman variants. Issues considered include modularisation, optimisation, graph specialisation.
 
 ## Dependencies
 
